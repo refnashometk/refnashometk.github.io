@@ -1,0 +1,1448 @@
+<!DOCTYPE HTML>
+<html class="scrollbar" translate="no">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+    <meta http-equiv='content-language' content='en-gb'>
+    <meta name="renderer" content="webkit"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="app:pageurl" content="/"/>
+
+    <!-- title -->
+    <title>Awk Command Cheat Sheet & Quick Reference</title>
+    <!-- keywords -->
+    <meta name="keywords" content="reference,cheatsheet,code table,snippets,linux,bash,text,script"/>
+    <!-- description -->
+    <meta name="description" content="This is a one page quick reference cheat sheet to the GNU awk, which covers commonly used awk expressions and "/>
+
+    <!-- for social -->
+    <meta property="og:url" content="https://ref.nashome.tk/awk.html"/>
+    <meta property="og:title" content="Awk Command Cheat Sheet & Quick Reference"/>
+    <meta property="og:site_name" content="Nashome Reference"/>
+    <meta property="og:description" content="This is a one page quick reference cheat sheet to the GNU awk, which covers commonly used awk expressions and "/>
+    <meta property="og:image" content="https://ref.nashome.tk/assets/image/awk-preview.png?v=fc3tc"/>
+    <meta property="og:image:width" content="2276"/>
+    <meta property="og:image:height" content="1240"/>
+    <meta property="og:type" content="website"/>
+
+    <!-- twitter share-->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Awk Command Cheat Sheet & Quick Reference"/>
+    <meta name="twitter:site" content="@CheatSheets.zip">
+    <meta name="twitter:creator" content="@CheatSheets.zip">
+    <meta name="twitter:description" content="This is a one page quick reference cheat sheet to the GNU awk, which covers commonly used awk expressions and "/>
+    <meta name="twitter:image" content="https://ref.nashome.tk/assets/image/awk-preview.png?v=6jwzbh"/>
+
+    <!-- favicon -->
+    <link rel="icon" href="/images/favicon.png?v=1"/>
+    <link rel="icon shortcut" type="image/png" href="/images/favicon.png?v=1"/>
+
+    <!-- misc -->
+    <link rel="canonical" href="https://ref.nashome.tk/awk.html"/>
+    <link rel="prefetch" href="https://ref.nashome.tk"/>
+    <link rel="prerender" href="https://ref.nashome.tk"/>
+    <link rel="alternate" href="/atom.xml" title="Nashome Reference" type="application/atom+xml"/>
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            let html = document.documentElement.classList;
+            html.toggle('dark')
+        }
+    </script>
+
+</head>
+
+<body class="bg-slate-100 dark:bg-slate-900">
+
+<header class="">
+    <div class="max-container z-10">
+        <div class="flex flex-row justify-between md:justify-start items-center py-3">
+            <a href="/" class="flex font-medium items-center justify-center md:justify-start text-slate-800 dark:text-slate-300">
+    
+        <!-- <div class="hidden md:flex justify-center w-10 h-10 md:w-12 md:h-12 text-white p-2 bg-emerald-500 rounded-full mr-3 text-2xl"> -->
+            <div class="self-center">
+                <!-- <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="1em" width="1em">
+    <path d="M886.25058594 98.67324219L137.8385 98.67324219c-39.31382813 0-71.47256836 29.21941406-71.47256836 68.59713867l0 687.8025c0 39.37675781 32.15786133 71.60036133 71.47256836 71.60036133l754.3764 0c39.31382813 0 68.51162109-32.22360352 68.51162109-71.60036133L960.72652109 167.2703C960.72558594 127.89256836 925.56529297 98.67324219 886.25058594 98.67324219zM354.49103516 200.47132812c60.54662109 0 109.63617188 49.04727539 109.63617187 109.5516211 0 60.50425781-49.08867187 109.55162109-109.63617187 109.55162109s-109.63617188-49.04727539-109.63617188-109.55162109C244.85477539 249.51772461 293.94353516 200.47132812 354.49103516 200.47132812zM167.03632813 839.84574219c-8.22058594 0-16.50506836-2.83227539-23.23441407-8.62646485-14.99308594-12.86279297-16.73912109-35.45727539-3.87632812-50.47286132l164.34720703-247.7241211c12.20396484-14.26860352 33.32970703-16.65448242 48.42896484-5.47286133l145.00977539 107.69668946 259.82191407-295.15227539c12.30925781-15.44036133 77.58448242-88.16853516 115.79036132-5.68529297 0.04227539-0.12779297 0.08551758 109.06110352 0.12779297 220.54948242 0.04227539 116.28272461 0.06389648 284.78162109 0.06389649 284.78162109C872.72808594 839.54603516 167.37646484 839.84574219 167.03632813 839.84574219z"></path>
+</svg> -->
+                <img src="/images/header.png" alt="logo" class="h-10">
+            </div>
+        <!-- </div> -->
+    
+    <!-- <span class="domain text-slate-600 dark:text-slate-300 text-lg md:text-2xl">CheatSheets<span class="text-emerald-400">.zip</span></span> -->
+</a>
+
+
+            <div class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+                <button id="mysearch-trigger" type="button"
+                        class="fadeIn inline-flex h-8 items-center bg-slate-200 dark:bg-gray-900 md:dark:bg-transparent md:bg-transparent rounded-full px-2 md:px-3 lg:px-6 py-2 text-slate-700  md:hover:opacity-80">
+                    <div class="md:text-xl text-slate-700 dark:text-slate-300  md:mr-2">
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="1em" width="1em">
+    <path d="M942.14826666 878.7968l-200.56746667-229.92213333C795.37493333 583.8848 827.73333333 500.5312 827.73333333 409.6 827.73333333 202.27413333 659.59253333 34.13333333 452.26666666 34.13333333 244.87253333 34.13333333 76.79999999 202.27413333 76.79999999 409.6S244.87253333 785.06666667 452.26666666 785.06666667c77.14133333 0 148.82133333-23.3472 208.41813333-63.21493334l199.33866667 228.5568c19.72906667 22.7328 54.272 24.91733333 76.8 5.25653334C959.62453333 935.86773333 961.87733333 901.46133333 942.14826666 878.7968zM179.19999999 409.6c0-150.59626667 122.4704-273.06666667 273.06666667-273.06666667 150.59626667 0 273.06666667 122.4704 273.06666667 273.06666667s-122.4704 273.06666667-273.06666667 273.06666667C301.67039999 682.66666667 179.19999999 560.19626667 179.19999999 409.6z"
+         ></path>
+</svg>
+
+                    </div>
+                    <span class="hidden md:inline dark:text-slate-300">Search for cheatsheet</span>
+                    <span class="hidden md:inline dark:text-slate-300 md:ml-2 text-sm leading-5 py-0.5 px-1.5 border border-slate-400 rounded-md">
+                        <span class="font-sans">⌘</span>
+                        <span class="font-sans">K</span>
+                    </span>
+                </button>
+                <!-- <a href="https://github.com/Fechin/reference/blob/main/source/_posts/awk.md" rel="external nofollow noreferrer" target="_blank">
+                    <img alt="GitHub Repo stars" style="height: 26px; opacity: 0.8;" src="https://img.shields.io/github/stars/Fechin/reference?style=social">
+                </a>
+                <a href="https://twitter.com/FechinLi" rel="external nofollow noreferrer" target="_blank">
+                    <button type="button"
+                            class="fadeIn inline-flex h-8 items-center rounded-full  bg-[#4d9feb] text-slate-100 ml-1 lg:ml-4 px-2 md:px-3 py-2 md:hover:opacity-80">
+                        <div class="md:mr-2">
+                            <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="1em" width="1em">
+    <path d="M283.02655555 307.55600001c140.717 72.074 260.839 66.925 260.839 66.92499999s-44.617-157.87599999 94.384-228.234c138.998-70.359 236.816 48.048 236.816 48.048s24.025-6.863 42.901-13.728 44.617-18.87599999 44.61700001-18.876l-42.90100001 77.222 66.92500001-6.863s-8.579 12.014-34.31900001 36.038c-25.741 24.025-37.754 37.754-37.754 37.754s10.297 190.483-90.95 338.062c-99.53 147.58000001-229.952 235.099-417.002 253.973-187.05 18.87599999-310.606-58.347-310.606-58.347s82.37-5.149 133.852-24.025c51.483-20.592 126.99-73.79 126.99-73.79s-106.397-32.605-145.866-70.35899999-48.048-60.062-48.048-60.06200001l106.397-1.716s-111.542-60.062-142.433-106.397c-30.89-46.333-36.038-92.666-36.038-92.666l80.656 32.605s-66.925-92.666-77.222-163.025c-10.297-72.074 12.014-109.826 12.014-109.826s36.038 65.21 176.752 137.283z"
+         ></path>
+</svg>
+
+                        </div>
+                        <span class="hidden md:inline text-sm">Follow Me</span>
+                    </button>
+                </a> -->
+                <button id="darkMode" class="fadeIn inline-flex items-center justify-center flex-shrink-0 h-8 w-8 rounded-full text-gray-900 ml-1 lg:ml-4 dark:text-gray-300 bg-gray-200 dark:bg-gray-900">
+                    <i class="icon-light text-gray-600 dark:text-gray-300 dark:hover:text-white">
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="1em" width="1em">
+    <path d="M512 31.40266667c14.19946667 0 26.935296 8.14830933 31.93787733 20.447232l29.40381867 72.50466133c12.713984 31.30436267-4.456448 66.21320533-38.33856 77.96599467A70.34197333 70.34197333 0 0 1 512 206.16533333c-36.19771733 0-65.536-27.11005867-65.536-60.555264 0-7.25265067 1.41994667-14.46161067 4.17245867-21.25550933l29.425664-72.50466133C485.04285867 39.550976 497.75684267 31.40266667 512 31.40266667z m0 961.19466666c-14.221312 0-26.95714133-8.14830933-31.93787733-20.447232l-29.425664-72.50466133a56.492032 56.492032 0 0 1-4.17245867-21.25550933C446.464 844.96657067 475.80228267 817.83466667 512 817.83466667c7.86432 0 15.64125867 1.31072 23.003136 3.84477866 33.882112 11.75278933 51.052544 46.661632 38.33856 77.98784l-29.40381867 72.482816c-5.00258133 12.29892267-17.73841067 20.447232-31.93787733 20.447232z m480.59733333-480.59733333c0 14.19946667-8.14830933 26.935296-20.447232 31.93787733l-72.50466133 29.40381867c-31.30436267 12.713984-66.21320533-4.456448-77.96599467-38.33856A70.34197333 70.34197333 0 0 1 817.83466667 512c0-36.19771733 27.11005867-65.536 60.555264-65.536 7.25265067 0 14.46161067 1.41994667 21.25550933 4.17245867l72.50466133 29.425664c12.29892267 4.980736 20.447232 17.69472 20.447232 31.93787733zM31.40266667 512c0-14.221312 8.14830933-26.95714133 20.447232-31.93787733l72.50466133-29.425664c6.77205333-2.752512 13.98101333-4.17245867 21.25550933-4.17245867C179.03342933 446.464 206.16533333 475.80228267 206.16533333 512c0 7.86432-1.31072 15.64125867-3.84477866 23.003136-11.75278933 33.882112-46.661632 51.052544-77.98784 38.33856l-72.482816-29.40381867C39.550976 538.935296 31.40266667 526.19946667 31.40266667 512zM172.15214933 172.17399467c10.04885333-10.04885333 24.81629867-13.28196267 37.04968534-8.126464l72.06775466 30.45239466c31.1296 13.172736 43.66882133 49.98212267 28.00571734 82.24768a70.34197333 70.34197333 0 0 1-13.54410667 19.00544c-25.58088533 25.58088533-65.49230933 27.15374933-89.12896 3.49525334a56.492032 56.492032 0 0 1-12.10231467-17.97870934L164.04753067 209.22368c-5.177344-12.23338667-1.94423467-27.000832 8.10461866-37.04968533z m679.673856 679.673856c-10.04885333 10.04885333-24.81629867 13.28196267-37.04968533 8.10461866l-72.04590933-30.45239466a56.492032 56.492032 0 0 1-18.00055467-12.08046934c-23.63665067-23.658496-22.06378667-63.56992 3.51709867-89.15080533a70.34197333 70.34197333 0 0 1 19.00544-13.54410667c32.26555733-15.663104 69.074944-3.12388267 82.24768 28.00571734l30.45239466 72.06775466c5.15549867 12.23338667 1.92238933 26.97898667-8.126464 37.04968534z m0-679.69570134c10.04885333 10.04885333 13.28196267 24.81629867 8.126464 37.04968534l-30.45239466 72.06775466c-13.172736 31.1296-49.98212267 43.66882133-82.24768 28.00571734a70.34197333 70.34197333 0 0 1-19.00544-13.54410667c-25.58088533-25.58088533-27.15374933-65.49230933-3.49525334-89.12896 5.111808-5.15549867 11.206656-9.240576 17.97870934-12.10231467l72.04590933-30.45239466c12.23338667-5.177344 27.000832-1.94423467 37.04968533 8.10461866zM172.15214933 851.82600533c-10.04885333-10.04885333-13.28196267-24.81629867-8.10461866-37.04968533l30.45239466-72.04590933c2.83989333-6.77205333 6.946816-12.86690133 12.08046934-18.00055467 23.658496-23.63665067 63.56992-22.06378667 89.15080533 3.51709867 5.57056 5.57056 10.15808 12.01493333 13.54410667 19.00544 15.663104 32.26555733 3.12388267 69.074944-28.00571734 82.24768l-72.06775466 30.45239466c-12.23338667 5.15549867-26.97898667 1.92238933-37.04968534-8.126464zM512 752.29866667c-132.7104 0-240.29866667-107.58826667-240.29866667-240.29866667s107.58826667-240.29866667 240.29866667-240.29866667 240.29866667 107.58826667 240.29866667 240.29866667-107.58826667 240.29866667-240.29866667 240.29866667z"
+         ></path>
+</svg>
+
+                    </i>
+                </button>
+                <!-- <a href="https://facebook.com/sharer/sharer.php?u=https://ref.nashome.tk/awk.html" rel="external nofollow noreferrer" target="_blank">
+                    <button type="button"
+                            class="fadeIn inline-flex h-8 w-8 justify-center items-center rounded-full bg-[#4a66ad] text-slate-100 ml-1 lg:ml-4 px-2 md:px-3 py-2 md:hover:opacity-80">
+                        <span class="text-md">
+                            <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="1em" width="1em">
+    <path d="M594.74346667 51.53066667c-28.95893333 0-56.30826667 3.2192-88.48533334 16.0896-65.9616 27.34826667-98.13653333 88.48533333-98.13653333 186.6208v94.91946666h-91.70026667v157.66186667h91.70026667v455.28853333h186.6208v-455.28853333h127.09546667l17.696-157.66186667h-144.7936v-70.7872c0-22.52266667 1.60853333-38.61013333 8.04266666-46.65706666 8.04266667-14.47786667 24.13226667-20.91413333 49.872-20.91413334h85.26613334v-157.66186666h-143.184z"
+         ></path>
+</svg>
+
+                        </span>
+                        <span class="hidden">Facebook</span>
+                    </button>
+                </a>
+                <a href="https://twitter.com/intent/tweet/?text=This%20is%20a%20one%20page%20quick%20reference%20cheat%20sheet%20to%20the%20GNU%20awk,%20which%20covers%20commonly%20used%20awk%20expressions%20and%20&url=https://ref.nashome.tk/awk.html" rel="external nofollow noreferrer" target="_blank">
+                    <button type="button"
+                            class="fadeIn inline-flex h-8 w-8 justify-center items-center rounded-full bg-[#4d9feb] text-slate-100 ml-1 lg:ml-4 px-2 md:px-3 py-2 md:hover:opacity-80">
+                        <span class="text-md">
+                            <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="1em" width="1em">
+    <path d="M283.02655555 307.55600001c140.717 72.074 260.839 66.925 260.839 66.92499999s-44.617-157.87599999 94.384-228.234c138.998-70.359 236.816 48.048 236.816 48.048s24.025-6.863 42.901-13.728 44.617-18.87599999 44.61700001-18.876l-42.90100001 77.222 66.92500001-6.863s-8.579 12.014-34.31900001 36.038c-25.741 24.025-37.754 37.754-37.754 37.754s10.297 190.483-90.95 338.062c-99.53 147.58000001-229.952 235.099-417.002 253.973-187.05 18.87599999-310.606-58.347-310.606-58.347s82.37-5.149 133.852-24.025c51.483-20.592 126.99-73.79 126.99-73.79s-106.397-32.605-145.866-70.35899999-48.048-60.062-48.048-60.06200001l106.397-1.716s-111.542-60.062-142.433-106.397c-30.89-46.333-36.038-92.666-36.038-92.666l80.656 32.605s-66.925-92.666-77.222-163.025c-10.297-72.074 12.014-109.826 12.014-109.826s36.038 65.21 176.752 137.283z"
+         ></path>
+</svg>
+
+                        </span>
+                        <span class="hidden">Twitter</span>
+                    </button>
+                </a> -->
+            </div>
+        </div>
+    </div>
+</header>
+<div class="mx-auto flex flex-wrap md:py-5 flex-col md:flex-row items-center">
+    <div class="flex flex-col w-full mx-auto text-center my-8">
+        <div class="max-container w-full">
+            <h1 class="text-5xl mb-4">
+                <span class="text-slate-700 dark:text-slate-300 font-light">Awk</span>
+                <span class="text-slate-400 dark:text-slate-500 font-extralight hidden md:inline">cheatsheet</span>
+            </h1>
+            <div class="lg:w-3/5 mx-auto intro leading-relaxed text-slate-600"><p>This is a one page quick reference cheat sheet to the <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.gnu.org/software/gawk/manual/gawk.html">GNU awk</a>, which covers commonly used awk expressions and commands.</p>
+</div>
+        </div>
+    </div>
+    <div id="mdLayout" class="mdLayout w-full max-container">
+<!--        <div class="hidden flex flex-wrap justify-center gap-2 transition duration-700 transform active:scale-500 ease-in-out">
+    <button class="bg-blue-500 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded">
+        <svg class="w-5 h-5 fill-current" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+    </button>
+
+    <div class="ml-1 inline-flex items-center group cursor-pointer relative">
+        <svg class="w-5 h-5 fill-current" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+        <div class="opacity-0 min-w-max bg-black text-white text-xs rounded-lg py-2 absolute z-10 group-hover:opacity-100 bottom-full -left-2 px-3 pointer-events-none">
+            Facebook
+            <svg class="absolute text-black h-2 left-0 ml-3 top-full" x="0px" y="0px" viewBox="0 0 255 255"
+                 xml:space="preserve"><polygon class="fill-current" points="0,0 127.5,127.5 255,0"></polygon></svg>
+        </div>
+    </div>
+
+    <button class="bg-blue-400 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded">
+        <svg class="w-5 h-5 fill-current" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+        </svg>
+    </button>
+
+    <button class="bg-red-500 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded">
+        <svg class="w-5 h-5 fill-current" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/>
+        </svg>
+    </button>
+
+    <button class="bg-pink-600 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded">
+        <svg class="w-5 h-5 fill-current" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/>
+        </svg>
+    </button>
+
+    <button class="bg-blue-600 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded">
+        <svg class="w-5 h-5 fill-current" role="img" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+            <g>
+                <path d="M218.123122,218.127392 L180.191928,218.127392 L180.191928,158.724263 C180.191928,144.559023 179.939053,126.323993 160.463756,126.323993 C140.707926,126.323993 137.685284,141.757585 137.685284,157.692986 L137.685284,218.123441 L99.7540894,218.123441 L99.7540894,95.9665207 L136.168036,95.9665207 L136.168036,112.660562 L136.677736,112.660562 C144.102746,99.9650027 157.908637,92.3824528 172.605689,92.9280076 C211.050535,92.9280076 218.138927,118.216023 218.138927,151.114151 L218.123122,218.127392 Z M56.9550587,79.2685282 C44.7981969,79.2707099 34.9413443,69.4171797 34.9391618,57.260052 C34.93698,45.1029244 44.7902948,35.2458562 56.9471566,35.2436736 C69.1040185,35.2414916 78.9608713,45.0950217 78.963054,57.2521493 C78.9641017,63.090208 76.6459976,68.6895714 72.5186979,72.8184433 C68.3913982,76.9473153 62.7929898,79.26748 56.9550587,79.2685282 M75.9206558,218.127392 L37.94995,218.127392 L37.94995,95.9665207 L75.9206558,95.9665207 L75.9206558,218.127392 Z M237.033403,0.0182577091 L18.8895249,0.0182577091 C8.57959469,-0.0980923971 0.124827038,8.16056231 -0.001,18.4706066 L-0.001,237.524091 C0.120519052,247.839103 8.57460631,256.105934 18.8895249,255.9977 L237.033403,255.9977 C247.368728,256.125818 255.855922,247.859464 255.999,237.524091 L255.999,18.4548016 C255.851624,8.12438979 247.363742,-0.133792868 237.033403,0.000790807055"></path>
+            </g>
+        </svg>
+    </button>
+
+    <button class="bg-red-600 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded">
+        <svg class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+            <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
+        </svg>
+    </button>
+
+    <button class="bg-gray-700 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" class="w-5"
+             preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+            <g fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385c.6.105.825-.255.825-.57c0-.285-.015-1.23-.015-2.235c-3.015.555-3.795-.735-4.035-1.41c-.135-.345-.72-1.41-1.23-1.695c-.42-.225-1.02-.78-.015-.795c.945-.015 1.62.87 1.845 1.23c1.08 1.815 2.805 1.305 3.495.99c.105-.78.42-1.305.765-1.605c-2.67-.3-5.46-1.335-5.46-5.925c0-1.305.465-2.385 1.23-3.225c-.12-.3-.54-1.53.12-3.18c0 0 1.005-.315 3.3 1.23c.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23c.66 1.65.24 2.88.12 3.18c.765.84 1.23 1.905 1.23 3.225c0 4.605-2.805 5.625-5.475 5.925c.435.375.81 1.095.81 2.22c0 1.605-.015 2.895-.015 3.3c0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+                      fill="currentColor"/>
+            </g>
+        </svg>
+    </button>
+
+    <button class="bg-red-500 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" class="w-5"
+             preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+            <g fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M12 0C5.372 0 0 5.373 0 12s5.372 12 12 12c6.627 0 12-5.373 12-12S18.627 0 12 0zm.14 19.018c-3.868 0-7-3.14-7-7.018c0-3.878 3.132-7.018 7-7.018c1.89 0 3.47.697 4.682 1.829l-1.974 1.978v-.004c-.735-.702-1.667-1.062-2.708-1.062c-2.31 0-4.187 1.956-4.187 4.273c0 2.315 1.877 4.277 4.187 4.277c2.096 0 3.522-1.202 3.816-2.852H12.14v-2.737h6.585c.088.47.135.96.135 1.474c0 4.01-2.677 6.86-6.72 6.86z"
+                      fill="currentColor"/>
+            </g>
+        </svg>
+    </button>
+</div>-->
+        <!--[htmlclean-protect]-->
+        <div class="h2-wrap">
+<h2 id="getting-started"><a class="h-anchor" href="#getting-started">#</a>Getting Started</h2>
+<div class="h3-wrap-list">
+<div class="h3-wrap">
+<h3 id="have-a-try"><a class="h-anchor" href="#have-a-try">#</a>Have a try</h3>
+<div class="section">
+<pre><code class="hljs wrap language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">awk -F: <span class="hljs-string">&#x27;&#123;print $1, $NF&#125;&#x27;</span> /etc/passwd</span>
+</code></pre>
+<hr>
+<table class="left-text">
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><code>-F:</code></td>
+<td>Colon as a separator</td>
+</tr>
+<tr>
+<td></td>
+<td><code>&#123;...&#125;</code></td>
+<td>Awk program</td>
+</tr>
+<tr>
+<td></td>
+<td><code>print</code></td>
+<td>Prints the current record</td>
+</tr>
+<tr>
+<td></td>
+<td><code>$1</code></td>
+<td>First field</td>
+</tr>
+<tr>
+<td></td>
+<td><code>$NF</code></td>
+<td>Last field</td>
+</tr>
+<tr>
+<td></td>
+<td><code>/etc/passwd</code></td>
+<td>Input data file</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="awk-program"><a class="h-anchor" href="#awk-program">#</a>Awk program</h3>
+<div class="section">
+<pre><code class="hljs">BEGIN          &#123;<span class="hljs-attribute">&lt;initializations&gt;</span>&#125; 
+   <span class="hljs-attribute">&lt;pattern 1&gt;</span> &#123;<span class="hljs-attribute">&lt;program actions&gt;</span>&#125; 
+   <span class="hljs-attribute">&lt;pattern 2&gt;</span> &#123;<span class="hljs-attribute">&lt;program actions&gt;</span>&#125; 
+   ...
+END            &#123;<span class="hljs-attribute">&lt; final actions &gt;</span>&#125;
+</code></pre>
+<h4 id="example"><a class="h-anchor" href="#example">#</a>Example</h4>
+<pre><code class="hljs">awk <span class="hljs-comment">&#x27;</span>
+    BEGIN &#123; <span class="hljs-built_in">print</span> <span class="hljs-string">&quot;\n&gt;&gt;&gt;Start&quot;</span> &#125;
+    !/(login|shutdown)/ &#123; <span class="hljs-built_in">print</span> NR, <span class="hljs-number">$0</span> &#125;
+    <span class="hljs-keyword">END</span> &#123; <span class="hljs-built_in">print</span> <span class="hljs-string">&quot;&lt;&lt;&lt;END\n&quot;</span> &#125;
+<span class="hljs-comment">&#x27; /etc/passwd</span>
+</code></pre>
+</div>
+</div>
+<div class="h3-wrap row-span-2">
+<h3 id="variables"><a class="h-anchor" href="#variables">#</a>Variables</h3>
+<div class="section">
+<pre><code class="hljs language-bash">          <span class="hljs-variable">$1</span>      <span class="hljs-variable">$2</span>/$(NF-1)    <span class="hljs-variable">$3</span>/<span class="hljs-variable">$NF</span>
+           ▼          ▼           ▼ 
+        ┌──────┬──────────────────┬───────┐
+<span class="hljs-variable">$0</span>/NR ▶ │  ID  │  WEBSITE         │  URI  │
+        ├──────┼──────────────────┼───────┤
+<span class="hljs-variable">$0</span>/NR ▶ │  1   │  cheatsheets.zip │  awk  │
+        ├──────┼──────────────────┼───────┤
+<span class="hljs-variable">$0</span>/NR ▶ │  2   │  google.com      │  25   │
+        └──────┴──────────────────┴───────┘
+</code></pre>
+<hr>
+<pre><code class="hljs"><span class="hljs-comment"># First and last field</span>
+awk -F: <span class="hljs-string">&#x27;&#123;print $1,$NF&#125;&#x27;</span> <span class="hljs-regexp">/etc/</span>passwd
+
+<span class="hljs-comment"># With line number</span>
+awk -F: <span class="hljs-string">&#x27;&#123;print NR, $0&#125;&#x27;</span> <span class="hljs-regexp">/etc/</span>passwd
+
+<span class="hljs-comment"># Second last field</span>
+awk -F: <span class="hljs-string">&#x27;&#123;print $(NF-1)&#125;&#x27;</span> <span class="hljs-regexp">/etc/</span>passwd
+
+<span class="hljs-comment"># Custom string </span>
+awk -F: <span class="hljs-string">&#x27;&#123;print $1 &quot;=&quot; $6&#125;&#x27;</span> <span class="hljs-regexp">/etc/</span>passwd
+</code></pre>
+<p>See: <a href="#awk-variables">Variables</a></p>
+</div>
+</div>
+<div class="h3-wrap col-span-2 row-span-2">
+<h3 id="awk-program-examples"><a class="h-anchor" href="#awk-program-examples">#</a>Awk program examples</h3>
+<div class="section">
+<pre><code class="hljs">awk <span class="hljs-string">&#x27;BEGIN &#123;print &quot;hello world&quot;&#125;&#x27;</span>        <span class="hljs-comment"># Prints &quot;hello world&quot;</span>
+awk -F: <span class="hljs-string">&#x27;&#123;print $1&#125;&#x27;</span> <span class="hljs-regexp">/etc/</span>passwd         <span class="hljs-comment"># -F: Specify field separator</span>
+
+<span class="hljs-comment"># /pattern/ Execute actions only for matched pattern</span>
+awk -F: <span class="hljs-string">&#x27;/root/ &#123;print $1&#125;&#x27;</span> <span class="hljs-regexp">/etc/</span>passwd                     
+
+<span class="hljs-comment"># BEGIN block is executed once at the start</span>
+awk -F: <span class="hljs-string">&#x27;BEGIN &#123; print &quot;uid&quot;&#125; &#123; print $1 &#125;&#x27;</span> <span class="hljs-regexp">/etc/</span>passwd     
+
+<span class="hljs-comment"># END block is executed once at the end</span>
+awk -F: <span class="hljs-string">&#x27;&#123;print $1&#125; END &#123; print &quot;-done-&quot;&#125;&#x27;</span> <span class="hljs-regexp">/etc/</span>passwd
+</code></pre>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="conditions"><a class="h-anchor" href="#conditions">#</a>Conditions</h3>
+<div class="section">
+<pre><code class="hljs"><span class="hljs-attribute">awk</span> -F: <span class="hljs-string">&#x27;<span class="hljs-variable">$3</span>&gt;30 &#123;print <span class="hljs-variable">$1</span>&#125;&#x27;</span> /etc/passwd
+</code></pre>
+<p>See: <a href="#awk-conditions">Conditions</a></p>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="generate-1000-spaces"><a class="h-anchor" href="#generate-1000-spaces">#</a>Generate 1000 spaces</h3>
+<div class="section">
+<pre><code class="hljs">awk <span class="hljs-symbol">&#x27;BEGIN</span>&#123;
+    <span class="hljs-keyword">while</span> (a++ &lt; <span class="hljs-number">1000</span>)
+        s=s <span class="hljs-string">&quot; &quot;</span>;
+    print s
+&#125;&#x27;
+</code></pre>
+<p>See: <a href="#awk-loops">Loops</a></p>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="arrays"><a class="h-anchor" href="#arrays">#</a>Arrays</h3>
+<div class="section">
+<pre><code class="hljs">awk <span class="hljs-symbol">&#x27;BEGIN</span> &#123;
+   fruits[<span class="hljs-string">&quot;mango&quot;</span>] = <span class="hljs-string">&quot;yellow&quot;</span>;
+   fruits[<span class="hljs-string">&quot;orange&quot;</span>] = <span class="hljs-string">&quot;orange&quot;</span>
+   <span class="hljs-keyword">for</span>(fruit <span class="hljs-keyword">in</span> fruits) &#123;
+     print <span class="hljs-string">&quot;The color of &quot;</span> fruit <span class="hljs-string">&quot; is &quot;</span> fruits[fruit]
+   &#125;
+&#125;&#x27;
+</code></pre>
+<p>See: <a href="#awk-arrays">Arrays</a></p>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="functions"><a class="h-anchor" href="#functions">#</a>Functions</h3>
+<div class="section">
+<pre><code class="hljs"><span class="hljs-comment"># =&gt; 5</span>
+awk &#x27;BEGIN&#123;<span class="hljs-keyword">print</span> length(<span class="hljs-string">&quot;hello&quot;</span>)&#125;&#x27;
+<span class="hljs-comment"># =&gt; HELLO</span>
+awk &#x27;BEGIN&#123;<span class="hljs-keyword">print</span> toupper(<span class="hljs-string">&quot;hello&quot;</span>)&#125;&#x27;
+<span class="hljs-comment"># =&gt; hel</span>
+awk &#x27;BEGIN&#123;<span class="hljs-keyword">print</span> substr(<span class="hljs-string">&quot;hello&quot;</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>)&#125;&#x27;
+</code></pre>
+<p>See: <a href="#awk-functions">Functions</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="h2-wrap">
+<h2 id="awk-variables"><a class="h-anchor" href="#awk-variables">#</a>Awk Variables</h2>
+<div class="h3-wrap-list">
+<div class="h3-wrap">
+<h3 id="build-in-variables"><a class="h-anchor" href="#build-in-variables">#</a>Build-in variables</h3>
+<div class="section">
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$0</code></td>
+<td>Whole line</td>
+</tr>
+<tr>
+<td><code>$1, $2...$NF</code></td>
+<td>First, second… last field</td>
+</tr>
+<tr>
+<td><code>NR</code></td>
+<td><code>N</code>umber of <code>R</code>ecords</td>
+</tr>
+<tr>
+<td><code>NF</code></td>
+<td><code>N</code>umber of <code>F</code>ields</td>
+</tr>
+<tr>
+<td><code>OFS</code></td>
+<td><code>O</code>utput <code>F</code>ield <code>S</code>eparator  <br> <em>(default &quot; &quot;)</em></td>
+</tr>
+<tr>
+<td><code>FS</code></td>
+<td>input <code>F</code>ield <code>S</code>eparator <br> <em>(default &quot; &quot;)</em></td>
+</tr>
+<tr>
+<td><code>ORS</code></td>
+<td><code>O</code>utput <code>R</code>ecord <code>S</code>eparator <br> <em>(default &quot;\n&quot;)</em></td>
+</tr>
+<tr>
+<td><code>RS</code></td>
+<td>input <code>R</code>ecord <code>S</code>eparator <br> <em>(default &quot;\n&quot;)</em></td>
+</tr>
+<tr>
+<td><code>FILENAME</code></td>
+<td>Name of the file</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="expressions"><a class="h-anchor" href="#expressions">#</a>Expressions</h3>
+<div class="section">
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$1 == &quot;root&quot;</code></td>
+<td>First field equals root</td>
+</tr>
+<tr>
+<td><code>&#123;print $(NF-1)&#125;</code></td>
+<td>Second last field</td>
+</tr>
+<tr>
+<td><code>NR!=1&#123;print $0&#125;</code></td>
+<td>From 2nd record</td>
+</tr>
+<tr>
+<td><code>NR &gt; 3</code></td>
+<td>From 4th record</td>
+</tr>
+<tr>
+<td><code>NR == 1</code></td>
+<td>First record</td>
+</tr>
+<tr>
+<td><code>END&#123;print NR&#125;</code></td>
+<td>Total records</td>
+</tr>
+<tr>
+<td><code>BEGIN&#123;print OFMT&#125;</code></td>
+<td>Output format</td>
+</tr>
+<tr>
+<td><code>&#123;print NR, $0&#125;</code></td>
+<td>Line number</td>
+</tr>
+<tr>
+<td><code>&#123;print NR &quot;	&quot; $0&#125;</code></td>
+<td>Line number (tab)</td>
+</tr>
+<tr>
+<td><code>&#123;$1 = NR; print&#125;</code></td>
+<td>Replace 1st field with line number</td>
+</tr>
+<tr>
+<td><code>$NF &gt; 4</code></td>
+<td>Last field &gt; 4</td>
+</tr>
+<tr>
+<td><code>NR % 2 == 0</code></td>
+<td>Even records</td>
+</tr>
+<tr>
+<td><code>NR==10, NR==20</code></td>
+<td>Records 10 to 20</td>
+</tr>
+<tr>
+<td><code>BEGIN&#123;print ARGC&#125;</code></td>
+<td>Total arguments</td>
+</tr>
+<tr>
+<td><code>ORS=NR%5?&quot;,&quot;:&quot;\n&quot;</code></td>
+<td>Concatenate records</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="examples"><a class="h-anchor" href="#examples">#</a>Examples</h3>
+<div class="section">
+<p>Print sum and average</p>
+<pre><code class="hljs">awk -F: &#x27;&#123;<span class="hljs-built_in">sum</span> += $<span class="hljs-number">3</span>&#125;
+     END &#123; <span class="hljs-built_in">print</span> <span class="hljs-built_in">sum</span>, <span class="hljs-built_in">sum</span>/NR &#125;
+&#x27; /etc/passwd
+</code></pre>
+<p>Printing parameters</p>
+<pre><code class="hljs">awk &#x27;BEGIN &#123;
+    for (i <span class="hljs-operator">=</span> <span class="hljs-number">1</span><span class="hljs-comment">; i &lt; ARGC; i++)</span>
+        print ARGV[i] &#125;&#x27; a b <span class="hljs-keyword">c</span>
+</code></pre>
+<p>Output field separator as a comma</p>
+<pre><code class="hljs"><span class="hljs-attribute">awk</span> <span class="hljs-string">&#x27;BEGIN &#123; FS=&quot;:&quot;;OFS=&quot;,&quot;&#125;
+    &#123;print <span class="hljs-variable">$1</span>,<span class="hljs-variable">$2</span>,<span class="hljs-variable">$3</span>,<span class="hljs-variable">$4</span>&#125;&#x27;</span> /etc/passwd
+</code></pre>
+<p>Position of match</p>
+<pre><code class="hljs">awk &#x27;BEGIN &#123;
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">match</span>(<span class="hljs-string">&quot;One Two Three&quot;</span>, <span class="hljs-string">&quot;Tw&quot;</span>))
+        <span class="hljs-keyword">print</span> RSTART &#125;&#x27;
+</code></pre>
+<p>Length of match</p>
+<pre><code class="hljs">awk &#x27;BEGIN &#123;
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">match</span>(<span class="hljs-string">&quot;One Two Three&quot;</span>, <span class="hljs-string">&quot;re&quot;</span>))
+        <span class="hljs-keyword">print</span> RLENGTH &#125;&#x27;
+</code></pre>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="environment-variables"><a class="h-anchor" href="#environment-variables">#</a>Environment Variables</h3>
+<div class="section">
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ARGC</code></td>
+<td>Number or arguments</td>
+</tr>
+<tr>
+<td><code>ARGV</code></td>
+<td>Array of arguments</td>
+</tr>
+<tr>
+<td><code>FNR</code></td>
+<td><code>F</code>ile <code>N</code>umber of <code>R</code>ecords</td>
+</tr>
+<tr>
+<td><code>OFMT</code></td>
+<td>Format for numbers       <br> <em>(default &quot;%.6g&quot;)</em></td>
+</tr>
+<tr>
+<td><code>RSTART</code></td>
+<td>Location in the string</td>
+</tr>
+<tr>
+<td><code>RLENGTH</code></td>
+<td>Length of match</td>
+</tr>
+<tr>
+<td><code>SUBSEP</code></td>
+<td>Multi-dimensional array separator <br> <em>(default &quot;\034&quot;)</em></td>
+</tr>
+<tr>
+<td><code>ARGIND</code></td>
+<td>Argument Index</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="gnu-awk-only"><a class="h-anchor" href="#gnu-awk-only">#</a>GNU awk only</h3>
+<div class="section">
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ENVIRON</code></td>
+<td>Environment variables</td>
+</tr>
+<tr>
+<td><code>IGNORECASE</code></td>
+<td>Ignore case</td>
+</tr>
+<tr>
+<td><code>CONVFMT</code></td>
+<td>Conversion format</td>
+</tr>
+<tr>
+<td><code>ERRNO</code></td>
+<td>System errors</td>
+</tr>
+<tr>
+<td><code>FIELDWIDTHS</code></td>
+<td>Fixed width fields</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="defining-variable"><a class="h-anchor" href="#defining-variable">#</a>Defining variable</h3>
+<div class="section">
+<pre><code class="hljs">awk -v <span class="hljs-built_in">var1</span>=<span class="hljs-string">&quot;Hello&quot;</span> -v var2=<span class="hljs-string">&quot;Wold&quot;</span> &#x27;
+    END &#123;<span class="hljs-built_in">print</span> <span class="hljs-built_in">var1</span>, var2&#125;
+&#x27; &lt;/dev/null
+</code></pre>
+<h4 id="use-shell-variables"><a class="h-anchor" href="#use-shell-variables">#</a>Use shell variables</h4>
+<pre><code class="hljs">awk -v varName=<span class="hljs-string">&quot;<span class="hljs-variable">$PWD</span>&quot;</span> <span class="hljs-string">&#x27;
+    END &#123;print varName&#125;&#x27;</span> &lt;/dev/null
+</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="h2-wrap">
+<h2 id="awk-operators"><a class="h-anchor" href="#awk-operators">#</a>Awk Operators</h2>
+<div class="h3-wrap-list">
+<div class="h3-wrap">
+<h3 id="operators"><a class="h-anchor" href="#operators">#</a>Operators</h3>
+<div class="section">
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&#123;print $1&#125;</code></td>
+<td>First field</td>
+</tr>
+<tr>
+<td><code>$2 == &quot;foo&quot;</code></td>
+<td>Equals</td>
+</tr>
+<tr>
+<td><code>$2 != &quot;foo&quot;</code></td>
+<td>Not equals</td>
+</tr>
+<tr>
+<td><code>&quot;foo&quot; in array</code></td>
+<td>In array</td>
+</tr>
+</tbody>
+</table>
+<h4 id="regular-expression"><a class="h-anchor" href="#regular-expression">#</a>Regular expression</h4>
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/regex/</code></td>
+<td>Line matches</td>
+</tr>
+<tr>
+<td><code>!/regex/</code></td>
+<td>Line not matches</td>
+</tr>
+<tr>
+<td><code>$1 ~ /regex/</code></td>
+<td>Field matches</td>
+</tr>
+<tr>
+<td><code>$1 !~ /regex/</code></td>
+<td>Field not matches</td>
+</tr>
+</tbody>
+</table>
+<h4 id="more-conditions"><a class="h-anchor" href="#more-conditions">#</a>More conditions</h4>
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>($2 &lt;= 4 || $3 &lt; 20)</code></td>
+<td>Or</td>
+</tr>
+<tr>
+<td><code>($1 == 4 &amp;&amp; $3 &lt; 20)</code></td>
+<td>And</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="operations"><a class="h-anchor" href="#operations">#</a>Operations</h3>
+<div class="section">
+<h4 id="arithmetic-operations"><a class="h-anchor" href="#arithmetic-operations">#</a>Arithmetic operations</h4>
+<ul class="cols-3 marker-none">
+<li><code>+</code></li>
+<li><code>-</code></li>
+<li><code>*</code></li>
+<li><code>/</code></li>
+<li><code>%</code></li>
+<li><code>++</code></li>
+<li><code>--</code></li>
+</ul>
+<h4 id="shorthand-assignments"><a class="h-anchor" href="#shorthand-assignments">#</a>Shorthand assignments</h4>
+<ul class="cols-3 marker-none">
+<li><code>+=</code></li>
+<li><code>-=</code></li>
+<li><code>*=</code></li>
+<li><code>/=</code></li>
+<li><code>%=</code></li>
+</ul>
+<h4 id="comparison-operators"><a class="h-anchor" href="#comparison-operators">#</a>Comparison operators</h4>
+<ul class="cols-3 marker-none">
+<li><code>==</code></li>
+<li><code>!=</code></li>
+<li><code>&lt;</code></li>
+<li><code>&gt;</code></li>
+<li><code>&lt;=</code></li>
+<li><code>&gt;=</code></li>
+</ul>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="examples-2"><a class="h-anchor" href="#examples-2">#</a>Examples</h3>
+<div class="section">
+<pre><code class="hljs">awk <span class="hljs-symbol">&#x27;BEGIN</span> &#123;
+    <span class="hljs-keyword">if</span> (<span class="hljs-string">&quot;foo&quot;</span> ~ <span class="hljs-string">&quot;^fo+$&quot;</span>)
+        print <span class="hljs-string">&quot;Fooey!&quot;</span>;
+&#125;&#x27;
+</code></pre>
+<h4 id="not-match"><a class="h-anchor" href="#not-match">#</a>Not match</h4>
+<pre><code class="hljs">awk <span class="hljs-symbol">&#x27;BEGIN</span> &#123;
+    <span class="hljs-keyword">if</span> (<span class="hljs-string">&quot;boo&quot;</span> !~ <span class="hljs-string">&quot;^fo+$&quot;</span>)
+        print <span class="hljs-string">&quot;Boo!&quot;</span>;
+&#125;&#x27;
+</code></pre>
+<h4 id="if-in-array"><a class="h-anchor" href="#if-in-array">#</a>if in array</h4>
+<pre><code class="hljs">awk &#x27;BEGIN &#123;
+    <span class="hljs-built_in">assoc</span>[<span class="hljs-string">&quot;foo&quot;</span>] = <span class="hljs-string">&quot;bar&quot;</span>;
+    <span class="hljs-built_in">assoc</span>[<span class="hljs-string">&quot;bar&quot;</span>] = <span class="hljs-string">&quot;baz&quot;</span>;
+    <span class="hljs-keyword">if</span> (<span class="hljs-string">&quot;foo&quot;</span> <span class="hljs-keyword">in</span> <span class="hljs-built_in">assoc</span>)
+        <span class="hljs-built_in">print</span> <span class="hljs-string">&quot;Fooey!&quot;</span>;
+&#125;&#x27;
+</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="h2-wrap">
+<h2 id="awk-functions"><a class="h-anchor" href="#awk-functions">#</a>Awk Functions</h2>
+<div class="h3-wrap-list">
+<div class="h3-wrap col-span-2">
+<h3 id="common-functions"><a class="h-anchor" href="#common-functions">#</a>Common functions</h3>
+<div class="section">
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>index(s,t)</code></td>
+<td>Position in string s where string t occurs, 0 if not found</td>
+</tr>
+<tr>
+<td><code>length(s)</code></td>
+<td>Length of string s (or $0 if no arg)</td>
+</tr>
+<tr>
+<td><code>rand</code></td>
+<td>Random number between 0 and 1</td>
+</tr>
+<tr>
+<td><code>substr(s,index,len)</code></td>
+<td>Return len-char substring of s that begins at index (counted from 1)</td>
+</tr>
+<tr>
+<td><code>srand</code></td>
+<td>Set seed for rand and return previous seed</td>
+</tr>
+<tr>
+<td><code>int(x)</code></td>
+<td>Truncate x to integer value</td>
+</tr>
+<tr>
+<td><code>split(s,a,fs)</code></td>
+<td>Split string s into array a split by fs, returning length of a</td>
+</tr>
+<tr>
+<td><code>match(s,r)</code></td>
+<td>Position in string s where regex r occurs, or 0 if not found</td>
+</tr>
+<tr>
+<td><code>sub(r,t,s)</code></td>
+<td>Substitute t for first occurrence of regex r in string s (or $0 if s not given)</td>
+</tr>
+<tr>
+<td><code>gsub(r,t,s)</code></td>
+<td>Substitute t for all occurrences of regex r in string s</td>
+</tr>
+<tr>
+<td><code>system(cmd)</code></td>
+<td>Execute cmd and return exit status</td>
+</tr>
+<tr>
+<td><code>tolower(s)</code></td>
+<td>String s to lowercase</td>
+</tr>
+<tr>
+<td><code>toupper(s)</code></td>
+<td>String s to uppercase</td>
+</tr>
+<tr>
+<td><code>getline</code></td>
+<td>Set $0 to next input record from current input file.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="user-defined-function"><a class="h-anchor" href="#user-defined-function">#</a>User defined function</h3>
+<div class="section">
+<pre><code class="hljs">awk &#x27;
+    # Returns minimum number
+    <span class="hljs-keyword">function</span> find<span class="hljs-constructor">_min(<span class="hljs-params">num1</span>, <span class="hljs-params">num2</span>)</span>&#123;
+       <span class="hljs-keyword">if</span> (num1 &lt; num2)
+       return num1
+       return num2
+    &#125;
+    # Returns maximum number
+    <span class="hljs-keyword">function</span> find<span class="hljs-constructor">_max(<span class="hljs-params">num1</span>, <span class="hljs-params">num2</span>)</span>&#123;
+       <span class="hljs-keyword">if</span> (num1 &gt; num2)
+       return num1
+       return num2
+    &#125;
+    # Main <span class="hljs-keyword">function</span>
+    <span class="hljs-keyword">function</span> main(num1, num2)&#123;
+       result = find<span class="hljs-constructor">_min(<span class="hljs-params">num1</span>, <span class="hljs-params">num2</span>)</span>
+       print <span class="hljs-string">&quot;Minimum =&quot;</span>, result
+      
+       result = find<span class="hljs-constructor">_max(<span class="hljs-params">num1</span>, <span class="hljs-params">num2</span>)</span>
+       print <span class="hljs-string">&quot;Maximum =&quot;</span>, result
+    &#125;
+    # Script execution starts here
+    BEGIN &#123;
+       main(<span class="hljs-number">10</span>, <span class="hljs-number">60</span>)
+    &#125;
+&#x27;
+</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="h2-wrap">
+<h2 id="awk-arrays"><a class="h-anchor" href="#awk-arrays">#</a>Awk Arrays</h2>
+<div class="h3-wrap-list">
+<div class="h3-wrap">
+<h3 id="array-with-index"><a class="h-anchor" href="#array-with-index">#</a>Array with index</h3>
+<div class="section">
+<pre><code class="hljs">awk &#x27;BEGIN &#123;
+    arr[<span class="hljs-number">0</span>] = <span class="hljs-string">&quot;foo&quot;</span>;
+    arr[<span class="hljs-number">1</span>] = <span class="hljs-string">&quot;bar&quot;</span>;
+    <span class="hljs-keyword">print</span>(arr[<span class="hljs-number">0</span>]); <span class="hljs-comment"># =&gt; foo</span>
+    delete arr[<span class="hljs-number">0</span>];
+    <span class="hljs-keyword">print</span>(arr[<span class="hljs-number">0</span>]); <span class="hljs-comment"># =&gt; &quot;&quot;</span>
+&#125;&#x27;
+</code></pre>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="array-with-key"><a class="h-anchor" href="#array-with-key">#</a>Array with key</h3>
+<div class="section">
+<pre><code class="hljs">awk &#x27;BEGIN &#123;
+    <span class="hljs-built_in">assoc</span>[<span class="hljs-string">&quot;foo&quot;</span>] = <span class="hljs-string">&quot;bar&quot;</span>;
+    <span class="hljs-built_in">assoc</span>[<span class="hljs-string">&quot;bar&quot;</span>] = <span class="hljs-string">&quot;baz&quot;</span>;
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;baz&quot;</span> <span class="hljs-keyword">in</span> <span class="hljs-built_in">assoc</span>); # =&gt; <span class="hljs-number">0</span>
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;foo&quot;</span> <span class="hljs-keyword">in</span> <span class="hljs-built_in">assoc</span>); # =&gt; <span class="hljs-number">1</span>
+&#125;&#x27;
+</code></pre>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="array-with-split"><a class="h-anchor" href="#array-with-split">#</a>Array with split</h3>
+<div class="section">
+<pre><code class="hljs">awk &#x27;BEGIN &#123;
+    <span class="hljs-built_in">split</span>(<span class="hljs-string">&quot;foo:bar:baz&quot;</span>, arr, <span class="hljs-string">&quot;:&quot;</span>);
+    <span class="hljs-keyword">for</span> (<span class="hljs-built_in">key</span> <span class="hljs-keyword">in</span> arr)
+        <span class="hljs-built_in">print</span> arr[<span class="hljs-built_in">key</span>];
+&#125;&#x27;
+</code></pre>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="array-with-asort"><a class="h-anchor" href="#array-with-asort">#</a>Array with asort</h3>
+<div class="section">
+<pre><code class="hljs">awk &#x27;BEGIN &#123;
+    arr<span class="hljs-comment">[0]</span> = 3
+    arr<span class="hljs-comment">[1]</span> = 2
+    arr<span class="hljs-comment">[2]</span> = 4
+    n = asort(arr)
+    for (i = 1; i &lt;= n ; i++)
+        print(arr<span class="hljs-comment">[i]</span>)
+&#125;&#x27;
+</code></pre>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="multi-dimensional"><a class="h-anchor" href="#multi-dimensional">#</a>Multi-dimensional</h3>
+<div class="section">
+<pre><code class="hljs">awk <span class="hljs-symbol">&#x27;BEGIN</span> &#123;
+    multidim[<span class="hljs-number">0</span>,<span class="hljs-number">0</span>] = <span class="hljs-string">&quot;foo&quot;</span>;
+    multidim[<span class="hljs-number">0</span>,<span class="hljs-number">1</span>] = <span class="hljs-string">&quot;bar&quot;</span>;
+    multidim[<span class="hljs-number">1</span>,<span class="hljs-number">0</span>] = <span class="hljs-string">&quot;baz&quot;</span>;
+    multidim[<span class="hljs-number">1</span>,<span class="hljs-number">1</span>] = <span class="hljs-string">&quot;boo&quot;</span>;
+&#125;&#x27;
+</code></pre>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="multi-dimensional-iteration"><a class="h-anchor" href="#multi-dimensional-iteration">#</a>Multi-dimensional iteration</h3>
+<div class="section">
+<pre><code class="hljs">awk &#x27;BEGIN &#123;
+    array<span class="hljs-comment">[1,2]</span>=3;
+    array<span class="hljs-comment">[2,3]</span>=5;
+    for (comb in array) &#123;
+        split(comb,sep,SUBSEP);
+        print sep<span class="hljs-comment">[1]</span>, sep<span class="hljs-comment">[2]</span>, 
+        array<span class="hljs-comment">[sep<span class="hljs-comment">[1]</span>,sep<span class="hljs-comment">[2]</span>]</span>
+    &#125;
+&#125;&#x27;
+</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="h2-wrap">
+<h2 id="awk-conditions"><a class="h-anchor" href="#awk-conditions">#</a>Awk Conditions</h2>
+<div class="h3-wrap-list">
+<div class="h3-wrap">
+<h3 id="if-else-statement"><a class="h-anchor" href="#if-else-statement">#</a>if-else statement</h3>
+<div class="section">
+<pre><code class="hljs">awk -v <span class="hljs-keyword">count</span>=2 &#x27;BEGIN &#123;
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">count</span> == 1)
+        <span class="hljs-keyword">print</span> <span class="hljs-string">&quot;Yes&quot;</span>;
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">print</span> <span class="hljs-string">&quot;Huh?&quot;</span>;
+&#125;&#x27;
+</code></pre>
+<h4 id="ternary-operator"><a class="h-anchor" href="#ternary-operator">#</a>Ternary operator</h4>
+<pre><code class="hljs">awk -v <span class="hljs-keyword">count</span>=2 &#x27;BEGIN &#123;
+    <span class="hljs-keyword">print</span> (<span class="hljs-keyword">count</span>==1) ? <span class="hljs-string">&quot;Yes&quot;</span> : <span class="hljs-string">&quot;Huh?&quot;</span>;
+&#125;&#x27;
+</code></pre>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="exists"><a class="h-anchor" href="#exists">#</a>Exists</h3>
+<div class="section">
+<pre><code class="hljs">awk &#x27;BEGIN &#123;
+    <span class="hljs-built_in">assoc</span>[<span class="hljs-string">&quot;foo&quot;</span>] = <span class="hljs-string">&quot;bar&quot;</span>;
+    <span class="hljs-built_in">assoc</span>[<span class="hljs-string">&quot;bar&quot;</span>] = <span class="hljs-string">&quot;baz&quot;</span>;
+    <span class="hljs-keyword">if</span> (<span class="hljs-string">&quot;foo&quot;</span> <span class="hljs-keyword">in</span> <span class="hljs-built_in">assoc</span>)
+        <span class="hljs-built_in">print</span> <span class="hljs-string">&quot;Fooey!&quot;</span>;
+&#125;&#x27;
+</code></pre>
+<h4 id="not-exists"><a class="h-anchor" href="#not-exists">#</a>Not exists</h4>
+<pre><code class="hljs">awk &#x27;BEGIN &#123;
+    <span class="hljs-built_in">assoc</span>[<span class="hljs-string">&quot;foo&quot;</span>] = <span class="hljs-string">&quot;bar&quot;</span>;
+    <span class="hljs-built_in">assoc</span>[<span class="hljs-string">&quot;bar&quot;</span>] = <span class="hljs-string">&quot;baz&quot;</span>;
+    <span class="hljs-keyword">if</span> (<span class="hljs-string">&quot;Huh&quot;</span> <span class="hljs-keyword">in</span> <span class="hljs-built_in">assoc</span> == <span class="hljs-number">0</span> )
+        <span class="hljs-built_in">print</span> <span class="hljs-string">&quot;Huh!&quot;</span>;
+&#125;&#x27;
+</code></pre>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="switch"><a class="h-anchor" href="#switch">#</a>switch</h3>
+<div class="section">
+<pre><code class="hljs">awk -F: &#x27;&#123;
+    switch (NR * <span class="hljs-number">2</span> + <span class="hljs-number">1</span>) &#123;
+        <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+        <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;11&quot;</span>:
+            <span class="hljs-keyword">print</span> NR - <span class="hljs-number">1</span>
+            <span class="hljs-keyword">break</span>
+        
+        <span class="hljs-keyword">case</span> /<span class="hljs-number">2</span>[[:digit:]]+/:
+            <span class="hljs-keyword">print</span> NR
+        
+        default:
+            <span class="hljs-keyword">print</span> NR + <span class="hljs-number">1</span>
+        
+        <span class="hljs-keyword">case</span> <span class="hljs-number">-1</span>:
+            <span class="hljs-keyword">print</span> NR * <span class="hljs-number">-1</span>
+    &#125;
+&#125;&#x27; /etc/passwd
+</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="h2-wrap">
+<h2 id="awk-loops"><a class="h-anchor" href="#awk-loops">#</a>Awk Loops</h2>
+<div class="h3-wrap-list">
+<div class="h3-wrap">
+<h3 id="for-i"><a class="h-anchor" href="#for-i">#</a>for...i</h3>
+<div class="section">
+<pre><code class="hljs">awk <span class="hljs-symbol">&#x27;BEGIN</span> &#123;
+    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++)
+        print <span class="hljs-string">&quot;i=&quot;</span> i;
+&#125;&#x27;
+</code></pre>
+<h4 id="powers-of-two-between-1-and-100"><a class="h-anchor" href="#powers-of-two-between-1-and-100">#</a>Powers of two between 1 and 100</h4>
+<pre><code class="hljs"><span class="hljs-attribute">awk</span> <span class="hljs-string">&#x27;BEGIN &#123;
+    for (i = 1; i &lt;= 100; i *= 2)
+        print i
+&#125;&#x27;</span>
+</code></pre>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="for-in"><a class="h-anchor" href="#for-in">#</a>for...in</h3>
+<div class="section">
+<pre><code class="hljs">awk &#x27;BEGIN &#123;
+    <span class="hljs-built_in">assoc</span>[<span class="hljs-string">&quot;key1&quot;</span>] = <span class="hljs-string">&quot;val1&quot;</span>
+    <span class="hljs-built_in">assoc</span>[<span class="hljs-string">&quot;key2&quot;</span>] = <span class="hljs-string">&quot;val2&quot;</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-built_in">key</span> <span class="hljs-keyword">in</span> <span class="hljs-built_in">assoc</span>)
+        <span class="hljs-built_in">print</span> <span class="hljs-built_in">assoc</span>[<span class="hljs-built_in">key</span>];
+&#125;&#x27;
+</code></pre>
+<h4 id="arguments"><a class="h-anchor" href="#arguments">#</a>Arguments</h4>
+<pre><code class="hljs"><span class="hljs-attribute">awk</span> <span class="hljs-string">&#x27;BEGIN &#123;
+    for (argnum in ARGV)
+        print ARGV[argnum];
+&#125;&#x27;</span> a b c
+</code></pre>
+</div>
+</div>
+<div class="h3-wrap row-span-3">
+<h3 id="examples-3"><a class="h-anchor" href="#examples-3">#</a>Examples</h3>
+<div class="section">
+<h4 id="reverse-records"><a class="h-anchor" href="#reverse-records">#</a>Reverse records</h4>
+<pre><code class="hljs">awk -F: &#x27;&#123; <span class="hljs-keyword">x</span>[NR] <span class="hljs-operator">=</span> $<span class="hljs-number">0</span> &#125;
+    END &#123;
+        for (i <span class="hljs-operator">=</span> NR<span class="hljs-comment">; i &gt; 0; i--)</span>
+        print <span class="hljs-keyword">x</span>[i]
+    &#125;
+&#x27; /etc/passwd
+</code></pre>
+<h4 id="reverse-fields"><a class="h-anchor" href="#reverse-fields">#</a>Reverse fields</h4>
+<pre><code class="hljs">awk -F: &#x27;&#123;
+    <span class="hljs-keyword">for</span> (i = NF<span class="hljs-comment">; i &gt; 0; i--)</span>
+        printf(<span class="hljs-string">&quot;%s &quot;</span>,<span class="hljs-built_in">$i</span>)<span class="hljs-comment">;</span>
+    <span class="hljs-keyword">print</span> <span class="hljs-string">&quot;&quot;</span>
+&#125;&#x27; /etc/passwd
+</code></pre>
+<h4 id="sum-by-record"><a class="h-anchor" href="#sum-by-record">#</a>Sum by record</h4>
+<pre><code class="hljs"><span class="hljs-attribute">awk</span> -F: <span class="hljs-string">&#x27;&#123;
+    s=0;
+    for (i = 1; i &lt;= NF; i++)
+        s += <span class="hljs-variable">$i</span>;
+    print s
+&#125;&#x27;</span> /etc/passwd
+</code></pre>
+<h4 id="sum-whole-file"><a class="h-anchor" href="#sum-whole-file">#</a>Sum whole file</h4>
+<pre><code class="hljs"><span class="hljs-attribute">awk</span> -F: <span class="hljs-string">&#x27;
+    &#123;for (i = 1; i &lt;= NF; i++)
+        s += <span class="hljs-variable">$i</span>;
+    &#125;;
+    END&#123;print s&#125;
+&#x27;</span> /etc/passwd
+</code></pre>
+</div>
+</div>
+<div class="h3-wrap row-span-2">
+<h3 id="while"><a class="h-anchor" href="#while">#</a>while</h3>
+<div class="section">
+<pre><code class="hljs">awk <span class="hljs-symbol">&#x27;BEGIN</span> &#123;
+    <span class="hljs-keyword">while</span> (a &lt; <span class="hljs-number">10</span>) &#123;
+        print <span class="hljs-string">&quot;- &quot;</span> <span class="hljs-string">&quot; concatenation: &quot;</span> a
+        a++;
+    &#125;
+&#125;&#x27;
+</code></pre>
+<h4 id="do-while"><a class="h-anchor" href="#do-while">#</a>do...while</h4>
+<pre><code class="hljs">awk &#x27;&#123;
+    i = <span class="hljs-number">1</span>
+    <span class="hljs-keyword">do</span> &#123;
+        <span class="hljs-keyword">print</span> $<span class="hljs-number">0</span>
+        i++
+    &#125; <span class="hljs-keyword">while</span> (i &lt;= <span class="hljs-number">5</span>)
+&#125;&#x27; /etc/passwd
+</code></pre>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="break"><a class="h-anchor" href="#break">#</a>Break</h3>
+<div class="section">
+<pre><code class="hljs">awk &#x27;BEGIN &#123;
+    break_num = <span class="hljs-number">5</span>
+    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span><span class="hljs-comment">; i &lt; 10; i++) &#123;</span>
+        <span class="hljs-keyword">print</span> i
+        <span class="hljs-keyword">if</span> (i == break_num)
+            <span class="hljs-keyword">break</span>
+    &#125;
+&#125;&#x27;
+</code></pre>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="continue"><a class="h-anchor" href="#continue">#</a>Continue</h3>
+<div class="section">
+<pre><code class="hljs">awk &#x27;BEGIN &#123;
+    for (<span class="hljs-keyword">x</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span><span class="hljs-comment">; x &lt;= 10; x++) &#123;</span>
+        if (<span class="hljs-keyword">x</span> <span class="hljs-operator">=</span><span class="hljs-operator">=</span> <span class="hljs-number">5</span> || <span class="hljs-keyword">x</span> <span class="hljs-operator">=</span><span class="hljs-operator">=</span> <span class="hljs-number">6</span>)
+            continue
+        printf <span class="hljs-string">&quot;%d &quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-keyword">x</span>
+    &#125;
+    print <span class="hljs-string">&quot;&quot;</span>
+&#125;&#x27;
+</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="h2-wrap">
+<h2 id="awk-formatted-printing"><a class="h-anchor" href="#awk-formatted-printing">#</a>Awk Formatted Printing</h2>
+<div class="h3-wrap-list">
+<div class="h3-wrap">
+<h3 id="usage"><a class="h-anchor" href="#usage">#</a>Usage</h3>
+<div class="section">
+<h4 id="right-align"><a class="h-anchor" href="#right-align">#</a>Right align</h4>
+<pre><code class="hljs">awk &#x27;BEGIN&#123;printf <span class="hljs-string">&quot;|%10s|\n&quot;</span>, <span class="hljs-string">&quot;hello&quot;</span>&#125;&#x27;
+
+|<span class="hljs-string">     hello</span>|
+</code></pre>
+<h4 id="left-align"><a class="h-anchor" href="#left-align">#</a>Left align</h4>
+<pre><code class="hljs">awk &#x27;BEGIN&#123;printf <span class="hljs-string">&quot;|%-10s|\n&quot;</span>, <span class="hljs-string">&quot;hello&quot;</span>&#125;&#x27;
+
+|<span class="hljs-string">hello     </span>|
+</code></pre>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="common-specifiers"><a class="h-anchor" href="#common-specifiers">#</a>Common specifiers</h3>
+<div class="section">
+<table>
+<thead>
+<tr>
+<th>Character</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>c</code></td>
+<td>ASCII character</td>
+</tr>
+<tr>
+<td><code>d</code></td>
+<td>Decimal integer</td>
+</tr>
+<tr>
+<td><code>e</code>, <code>E</code>, <code>f</code></td>
+<td>Floating-point format</td>
+</tr>
+<tr>
+<td><code>o</code></td>
+<td>Unsigned octal value</td>
+</tr>
+<tr>
+<td><code>s</code></td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>%</code></td>
+<td>Literal %</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="space"><a class="h-anchor" href="#space">#</a>Space</h3>
+<div class="section">
+<pre><code class="hljs">awk -F: <span class="hljs-string">&#x27;&#123;
+    printf &quot;%-10s %s\n&quot;, $1, $(NF-1)
+&#125;&#x27;</span> /etc/passwd | <span class="hljs-built_in">head</span> -n 3
+</code></pre>
+<p>Outputs</p>
+<pre><code class="hljs language-shell">root       /root
+bin        /bin
+daemon     /sbin
+</code></pre>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="header"><a class="h-anchor" href="#header">#</a>Header</h3>
+<div class="section">
+<pre><code class="hljs">awk <span class="hljs-operator">-</span><span class="hljs-type">F</span>: &#x27;<span class="hljs-type">BEGIN</span> &#123;
+    printf <span class="hljs-string">&quot;%-10s %s<span class="hljs-subst">\n</span>&quot;</span>, <span class="hljs-string">&quot;User&quot;</span>, <span class="hljs-string">&quot;Home&quot;</span>
+    printf <span class="hljs-string">&quot;%-10s %s<span class="hljs-subst">\n</span>&quot;</span>, <span class="hljs-string">&quot;----&quot;</span>,<span class="hljs-string">&quot;----&quot;</span>&#125;
+    &#123; printf <span class="hljs-string">&quot;%-10s %s<span class="hljs-subst">\n</span>&quot;</span>, <span class="hljs-variable">$1</span>, $(<span class="hljs-type">NF</span><span class="hljs-operator">-</span><span class="hljs-number">1</span>) &#125;
+&#x27; <span class="hljs-operator">/</span>etc<span class="hljs-operator">/</span>passwd <span class="hljs-operator">|</span> head <span class="hljs-operator">-</span>n <span class="hljs-number">5</span>
+</code></pre>
+<p>Outputs</p>
+<pre><code class="hljs">User       Home
+<span class="hljs-params">----</span>       <span class="hljs-params">----</span>
+root       <span class="hljs-string">/root</span>
+bin        <span class="hljs-string">/bin</span>
+daemon     <span class="hljs-string">/sbin</span>
+</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="h2-wrap">
+<h2 id="miscellaneous"><a class="h-anchor" href="#miscellaneous">#</a>Miscellaneous</h2>
+<div class="h3-wrap-list">
+<div class="h3-wrap">
+<h3 id="regex-metacharacters"><a class="h-anchor" href="#regex-metacharacters">#</a>Regex Metacharacters</h3>
+<div class="section">
+<ul class="cols-3 marker-none">
+<li><code>\</code></li>
+<li><code>^</code></li>
+<li><code>$</code></li>
+<li><code>.</code></li>
+<li><code>[</code></li>
+<li><code>]</code></li>
+<li><code>|</code></li>
+<li><code>(</code></li>
+<li><code>)</code></li>
+<li><code>*</code></li>
+<li><code>+</code></li>
+<li><code>?</code></li>
+</ul>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="escape-sequences"><a class="h-anchor" href="#escape-sequences">#</a>Escape Sequences</h3>
+<div class="section">
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\b</code></td>
+<td>Backspace</td>
+</tr>
+<tr>
+<td><code>\f</code></td>
+<td>Form feed</td>
+</tr>
+<tr>
+<td><code>\n</code></td>
+<td>Newline (line feed)</td>
+</tr>
+<tr>
+<td><code>\r</code></td>
+<td>Carriage return</td>
+</tr>
+<tr>
+<td><code>\t</code></td>
+<td>Horizontal tab</td>
+</tr>
+<tr>
+<td><code>\v</code></td>
+<td>Vertical tab</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="run-script"><a class="h-anchor" href="#run-script">#</a>Run script</h3>
+<div class="section">
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash"><span class="hljs-built_in">cat</span> demo.awk</span>
+<span class="hljs-meta prompt_">#</span><span class="language-bash">!/usr/bin/awk -f</span>
+BEGIN &#123; x = 23 &#125;
+      &#123; x += 2 &#125;
+END   &#123; print x &#125;
+<span class="hljs-meta prompt_">$ </span><span class="language-bash">awk -f demo.awk /etc/passwd</span>
+69
+</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="h2-wrap">
+<h2 id="also-see"><a class="h-anchor" href="#also-see">#</a>Also see</h2>
+<div class="h3-wrap-list">
+<ul>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www-zeuthen.desy.de/dv/documentation/unixguide/infohtml/gawk/gawk.html">The GNU Awk User's Guide</a> <em>(www-zeuthen.desy.de)</em></li>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://gist.github.com/Rafe/3102414">AWK cheatsheet</a> <em>(gist.github.com)</em></li>
+</ul>
+</div>
+</div>
+
+        <!--[/htmlclean-protect]-->
+    </div>
+</div>
+
+<div id="mysearch"
+     class="z-50 fixed inset-0 flex justify-center bg-slate-600/80 dark:bg-slate-900/90 items-start text-sm z-50 overflow-hidden lg:pt-16 lg:pb-20 hidden">
+    <div id="mysearch-box"
+         class="lg:max-w-screen-lg w-full flex flex-col justify-between bg-white dark:bg-slate-700 shadow-3xl dark:shadow-3xl lg:rounded-lg lg:max-h-832 min-h-320 h-full">
+        <div class="flex items-center h-16 flex-none border-b border-slate-200 dark:border-slate-700">
+            <div class="w-full h-full">
+                <form class="flex items-center w-full h-full outline-none rounded-tl-lg">
+                    <label for="mysearch-input" id="mysearch-label"
+                           class="h-full w-14 mt-1 ml-1 px-4 flex items-center justify-center transition-colors duration-200 ease-in-out text-emerald-200">
+                        <div class="text-2xl text-emerald-500">
+                            <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="1em" width="1em">
+    <path d="M942.14826666 878.7968l-200.56746667-229.92213333C795.37493333 583.8848 827.73333333 500.5312 827.73333333 409.6 827.73333333 202.27413333 659.59253333 34.13333333 452.26666666 34.13333333 244.87253333 34.13333333 76.79999999 202.27413333 76.79999999 409.6S244.87253333 785.06666667 452.26666666 785.06666667c77.14133333 0 148.82133333-23.3472 208.41813333-63.21493334l199.33866667 228.5568c19.72906667 22.7328 54.272 24.91733333 76.8 5.25653334C959.62453333 935.86773333 961.87733333 901.46133333 942.14826666 878.7968zM179.19999999 409.6c0-150.59626667 122.4704-273.06666667 273.06666667-273.06666667 150.59626667 0 273.06666667 122.4704 273.06666667 273.06666667s-122.4704 273.06666667-273.06666667 273.06666667C301.67039999 682.66666667 179.19999999 560.19626667 179.19999999 409.6z"
+         ></path>
+</svg>
+
+                        </div>
+                    </label>
+                    <div class="relative flex-1">
+                        <input class="flex-1 font-light h-full bg-transparent focus:text-slate-900 text-slate-500 dark:text-slate-300 placeholder-slate-400 placeholder-opacity-80 shadow-none outline-none truncate text-lg sm:text-2xl caret-color-emerald-400 leading-normalized w-full appearance-none rounded-none transition-colors duration-200 ease-in-out"
+                               id="mysearch-input"
+                               autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+                               placeholder="Search for cheatsheet" maxlength="128" type="text"
+                               enterkeyhint="go">
+                    </div>
+                    <button id="mysearch-clear" type="reset"
+                            class="items-center justify-center h-full w-14 px-4 text-slate-600 dark:text-slate-300 hover:text-slate-800 dark:hover:text-slate-100 opacity-75 fill-current cursor-pointer transition-fast-out flex">
+                        <i class="icon icon-close text-xs font-bold"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="w-px h-8 bg-slate-100 dark:bg-slate-400/20 flex-none"></div>
+            <button class="cancel mr-1 px-4 h-full text-slate-500 dark:text-slate-300 hover:text-slate-800 dark:hover:text-slate-300">
+                Cancel
+            </button>
+        </div>
+        <div class="flex flex-grow overflow-hidden lg:rounded-br-lg">
+            <!-- Search result -->
+            <div class="relative w-full flex-none overflow-y-auto lg:w-1/2">
+                <ul id="mysearch-list"></ul>
+            </div>
+            <!-- Preview panel -->
+            <div class="preview-panel shadow-inner bg-slate-100 dark:bg-slate-800 lg:block w-1/2 flex-none overflow-y-auto">
+
+            </div>
+        </div>
+    </div>
+</div>
+<div id="carbon_container"></div>
+</body>
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+
+    <script>
+        // Get all pre > code elements
+        const codeBlocks = document.querySelectorAll('pre > code');
+        const initInnerHTML = '<svg height="1em" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path> </svg>';
+        const successInnerHTML = '<svg height="1em" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg>';
+        codeBlocks.forEach(function (codeBlock) {
+            // Create a copy button element
+            const copyButton = document.createElement('button');
+            copyButton.className = 'bg-emerald-500 p-2 text-white fadeIn shadow-xl rounded flex items-center absolute top-2 right-2';
+            copyButton.innerHTML = initInnerHTML;
+            copyButton.style.opacity = "0";
+            const parent = codeBlock.parentNode;
+
+            parent.style = "position: relative;"
+            parent.insertBefore(copyButton, codeBlock);
+
+            // Add click event listener to copy button
+            copyButton.addEventListener('click', () => {
+                navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+                    copyButton.innerHTML = successInnerHTML;
+                    setTimeout(() => {
+                        copyButton.innerHTML = initInnerHTML;
+                    }, 1000);
+                });
+            });
+
+            parent.addEventListener('mouseenter', () => {
+                copyButton.style.opacity = "1";
+            });
+            parent.addEventListener('mouseleave', () => {
+                copyButton.style.opacity = "0";
+            });
+        });
+    </script>
+
+
+</html>
