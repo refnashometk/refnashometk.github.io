@@ -8,8 +8,8 @@
 - [Kubernetes](http://localhost:4000/kubernetes.html): This page contains a list of commonly used kubectl commands and flags.
 - [ES6](http://localhost:4000/es6.html): A quick reference cheatsheet of what's new in JavaScript for ES2015, ES2016, ES2017, ES2018 and beyond
 - [MATLAB](http://localhost:4000/matlab.html): This quick reference cheat sheet provides an example introduction to using the [MATLAB](https://mathworks.cn/) scientific computing language to get started quickly
-- [INI](http://localhost:4000/ini.html): This is a quick reference cheat sheet for understanding and writing INI-format configuration files.
 - [C](http://localhost:4000/c.html): C quick reference cheat sheet that provides basic syntax and methods.
+- [INI](http://localhost:4000/ini.html): This is a quick reference cheat sheet for understanding and writing INI-format configuration files.
 - [LaTeX](http://localhost:4000/latex.html): This cheat sheet summarizes a reference list of [LaTeX](https://www.latex-project.org/) commonly used display math notation and some application examples of [KaTeX](https://katex.org/).
 - [Rust](http://localhost:4000/rust.html): The Rust quick reference cheat sheet that aims at providing help on writing basic syntax and methods.
 - [C#](http://localhost:4000/cs.html): C# quick reference cheat sheet that provides basic syntax and methods.
@@ -118,11 +118,11 @@ This reference was made for Emacs 27.
 - [PhpStorm](http://localhost:4000/phpstorm.html): A visual cheat-sheet for the 96 keyboard shortcuts found in JetBrains PhpStorm
 - [Postman](http://localhost:4000/postman.html): A visual cheat-sheet for the 23 keyboard shortcuts found in Postman
 - [Webflow](http://localhost:4000/webflow.html): A visual cheat-sheet for the 41 keyboard shortcuts found in Webflow
+- [1Password](http://localhost:4000/1password.html): A cheat sheet for 1password's keyboard shortcuts in Mac, Windows, iOS, Linux.
 - [Adobe Lightroom CC](http://localhost:4000/adobe-lightroom.html): A visual cheat-sheet for the 251 keyboard shortcuts found in Adobe Lightroom CC
 - [Affinity Designer](http://localhost:4000/affinity-designer.html): A visual cheat-sheet for the 108 keyboard shortcuts found in Affinity Designer
 - [Pocket](http://localhost:4000/pocket.html): A visual cheat-sheet for the 36 keyboard shortcuts found on Pocket for Web
 - [Trello](http://localhost:4000/trello.html): A visual cheat-sheet for the 29 keyboard shortcuts found on Trello
-- [1Password](http://localhost:4000/1password.html): A cheat sheet for 1password's keyboard shortcuts in Mac, Windows, iOS, Linux.
 - [Audacity](http://localhost:4000/audacity.html): A visual cheat-sheet for the 135 default keyboard shortcuts found in Audacity
 - [Framer X](http://localhost:4000/framer-x.html): A visual cheat-sheet for the 45 keyboard shortcuts found in Framer X. This application is MacOS-only.
 - [Google Drive](http://localhost:4000/google-drive.html): A visual cheat-sheet for the 54 keyboard shortcuts found in Google Drive on the web
